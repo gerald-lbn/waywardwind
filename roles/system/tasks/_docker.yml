@@ -1,0 +1,9 @@
+- name: Create Data folder for hosted services
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+  loop:
+    - "{{ data.books }}"

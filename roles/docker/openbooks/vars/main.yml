@@ -1,0 +1,6 @@
+openbooks:
+  templates: "roles/docker/openbooks/templates"
+  volumes:
+    root: "{{ docker.services_dir }}/openbooks"
+  ports:
+    http: 9002

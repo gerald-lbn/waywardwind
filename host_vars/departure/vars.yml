@@ -16,3 +16,7 @@ security_ssh_allowed_groups: []
 docker:
   services_dir: "/srv/docker"
   tz: "Europe/Paris"
+
+# Location for media files (books, music, videos, etc.)
+data:
+  books: "/data/books"

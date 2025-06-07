@@ -9,3 +9,4 @@
     - role: geerlingguy.docker
     - role: docker/homer
     - role: docker/cup
+    - role: docker/openbooks
