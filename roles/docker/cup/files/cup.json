@@ -3,7 +3,8 @@
     "includes": [
       "ghcr.io/sergi0g/cup:latest",
       "ghcr.io/bastienwirtz/homer:latest",
-      "evan-buss/openbooks:latest"
+      "ghcr.io/evan-buss/openbooks:latest",
+      "ghcr.io/crocodilestick/calibre-web-automated:latest"
     ]
   },
   "refresh_interval": "0 20 * * 5",

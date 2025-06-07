@@ -10,3 +10,4 @@
     - role: docker/homer
     - role: docker/cup
     - role: docker/openbooks
+    - role: docker/cwa

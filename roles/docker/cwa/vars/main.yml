@@ -1,0 +1,8 @@
+cwa:
+  templates: "roles/docker/cwa/templates"
+  volumes:
+    root: "{{ docker.services_dir }}/cwa"
+    config: "{{ docker.services_dir }}/cwa/config"
+    ingest: "{{ docker.services_dir }}/cwa/ingest"
+  ports:
+    http: 9003

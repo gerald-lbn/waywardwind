@@ -1,0 +1,26 @@
+---
+- name: "CWA - Create directories"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+  loop:
+    - "{{ cwa.volumes.root }}"
+    - "{{ cwa.volumes.config }}"
+    - "{{ cwa.volumes.ingest }}"
+
+- name: "CWA - Create docker-compose.yml file"
+  ansible.builtin.template:
+    src: "{{ cwa.templates }}/docker-compose.yml.j2"
+    dest: "{{ cwa.volumes.root }}/docker-compose.yml"
+    mode: "0644"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: "CWA - Start containers"
+  community.docker.docker_compose_v2:
+    project_src: "{{ cwa.volumes.root }}"
+    files:
+      - docker-compose.yml
