@@ -1,0 +1,8 @@
+homer:
+  templates: "roles/docker/homer/templates"
+  files: "roles/docker/homer/files"
+  volumes:
+    root: "{{ docker.services_dir }}/homer"
+    assets: "{{ docker.services_dir }}/homer/assets"
+  ports:
+    http: 9000

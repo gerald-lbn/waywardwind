@@ -1,0 +1,170 @@
+---
+# Homepage configuration
+# See https://fontawesome.com/search for icons options
+title: "Land Of Departure"
+subtitle: "A place between the realms of light and darkness"
+logo: "assets/logo.png"
+# icon: "fas fa-skull-crossbones" # Optional icon
+
+header: true
+footer: false
+columns: 4
+
+defaults:
+  colorTheme: dark
+
+# Optional theme customization
+theme: default
+stylesheet:
+  - "assets/custom.css"
+
+# Optional theme customization (color overrrides)
+# overrrides can also be done using CSS vars
+colors:
+  dark:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#131313"
+    card-background: "#2b2b2b"
+    text: "#eaeaea"
+    text-header: "#ffffff"
+    text-title: "#fafafa"
+    text-subtitle: "#f5f5f5"
+    card-shadow: rgba(0, 0, 0, 0.4)
+    link: "#3273dc"
+    link-hover: "#ffdd57"
+
+# Services
+# First level array represent a group.
+# Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
+services:
+  - name: "Media Management"
+    icon: "fas fa-photo-film"
+    items:
+      - name: "Calibre-web automated"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/calibre.svg"
+        url: "https://github.com/crocodilestick/Calibre-Web-Automated"
+        subtitle: "eBook library"
+
+      - name: "Immich"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/immich.svg"
+        url: "https://immich.app/"
+        subtitle: "Photo and video manager"
+
+      - name: "Jellyfin"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/jellyfin.svg"
+        url: "https://jellyfin.org/"
+        subtitle: "Media server"
+
+      - name: "Jellyseerr"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/jellyseerr.svg"
+        url: "https://docs.jellyseerr.dev/"
+        subtitle: "Request management for Jellyfin"
+
+  - name: "*Arr Stack"
+    icon: "fas fa-cubes"
+    items:
+      - name: "Bazarr"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/png/bazarr.png"
+        url: "https://www.bazarr.media"
+        subtitle: "Subtitle management"
+
+      - name: "Lidarr"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/lidarr.svg"
+        url: "https://lidarr.audio/"
+        subtitle: "Music collection manager"
+
+      - name: "Radarr"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/radarr.svg"
+        url: "https://radarr.video/"
+        subtitle: "Movie collection manager"
+
+      - name: "Readarr"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/readarr.svg"
+        url: "https://readarr.com/"
+        subtitle: "Book collection manager"
+
+      - name: "Sonarr"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/sonarr.svg"
+        url: "https://sonarr.tv/"
+        subtitle: "TV series collection manager"
+
+  - name: "Download Clients"
+    icon: "fa fa-download"
+    items:
+      - name: "Calibre Downloader"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/calibre-web.svg"
+        url: "https://github.com/calibrain/calibre-web-automated-book-downloader"
+        subtitle: "Download eBooks"
+
+      - name: "Deluge"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/deluge.svg"
+        url: "https://github.com/deluge-torrent/deluge"
+        subtitle: "BitTorrent client"
+
+      - name: "SABnzbd"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/sabnzbd.svg"
+        url: "https://sabnzbd.org/"
+        subtitle: "Usenet client"
+
+  - name: "Services"
+    icon: "fas fa-tools"
+    items:
+      - name: "Excalidraw"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/excalidraw.svg"
+        url: "https://excalidraw.com/"
+        subtitle: "Virtual whiteboard"
+
+      - name: "Linkwarden"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/png/linkwarden.png"
+        url: "https://linkwarden.app/"
+        subtitle: "Bookmark manager"
+
+      - name: "Nextcloud"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/nextcloud.svg"
+        url: "http://nextcloud.com"
+        subtitle: "Cloud storage & collaboration"
+
+      - name: "µBin"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/microbin.svg"
+        url: "https://microbin.eu/"
+        subtitle: "Pastebin service"
+
+      - name: "Vaultwarden"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/bitwarden.svg"
+        url: "https://github.com/dani-garcia/vaultwarden"
+        subtitle: "Password manager"
+
+  - name: "Infrastructure"
+    icon: "fas fa-server"
+    items:
+      - name: "Duplicati"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/duplicati.svg"
+        url: "https://duplicati.com/"
+        subtitle: "Backup solution"
+
+      - name: "Nginx Proxy Manager"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/nginx-proxy-manager.svg"
+        url: "https://nginxproxymanager.com/"
+        subtitle: "Reverse proxy manager"
+
+      - name: "Ntfy"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/ntfy.svg"
+        url: "https://ntfy.sh/"
+        subtitle: "Push notifications"
+
+      - name: "Portainer"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/portainer.svg"
+        url: "https://www.portainer.io/"
+        subtitle: "Docker management"
+
+      - name: "Tailscale"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/tailscale.svg"
+        url: "https://tailscale.com/"
+        subtitle: "VPN network"
+
+      - name: "Uptime Kuma"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/uptime-kuma.svg"
+        url: "https://uptime.kuma.pet/"
+        subtitle: "Service monitoring"

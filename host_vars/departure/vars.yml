@@ -12,3 +12,7 @@ security_ssh_gss_api_authentication: "no"
 security_ssh_x11_forwarding: "no"
 security_ssh_allowed_users: []
 security_ssh_allowed_groups: []
+
+docker:
+  services_dir: "/srv/docker"
+  tz: "Europe/Paris"
