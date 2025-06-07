@@ -2,7 +2,8 @@
   "images": {
     "includes": [
       "ghcr.io/sergi0g/cup:latest",
-      "ghcr.io/bastienwirtz/homer:latest"
+      "ghcr.io/bastienwirtz/homer:latest",
+      "evan-buss/openbooks:latest"
     ]
   },
   "refresh_interval": "0 20 * * 5",
