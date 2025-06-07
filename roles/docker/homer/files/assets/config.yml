@@ -139,6 +139,11 @@ services:
   - name: "Infrastructure"
     icon: "fas fa-server"
     items:
+      - name: "Cup"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/cup-updates.svg"
+        url: "https://github.com/sergi0g/cup"
+        subtitle: "Container updates monitoring"
+
       - name: "Duplicati"
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/duplicati.svg"
         url: "https://duplicati.com/"

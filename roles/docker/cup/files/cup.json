@@ -1,0 +1,10 @@
+{
+  "images": {
+    "includes": [
+      "ghcr.io/sergi0g/cup:latest",
+      "ghcr.io/bastienwirtz/homer:latest"
+    ]
+  },
+  "refresh_interval": "0 20 * * 5",
+  "theme": "default"
+}

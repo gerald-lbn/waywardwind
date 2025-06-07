@@ -1,0 +1,33 @@
+---
+- name: "Cup - Create directories"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+  loop:
+    - "{{ cup.volumes.root }}"
+    - "{{ cup.volumes.config }}"
+
+- name: "Cup - Copy configuration files"
+  ansible.builtin.copy:
+    src: "{{ cup.files }}/cup.json"
+    dest: "{{ cup.volumes.config }}/cup.json"
+    mode: "0644"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: "Cup - Create docker-compose.yml file"
+  ansible.builtin.template:
+    src: "{{ cup.templates }}/docker-compose.yml.j2"
+    dest: "{{ cup.volumes.root }}/docker-compose.yml"
+    mode: "0644"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: "Cup - Start containers"
+  community.docker.docker_compose_v2:
+    project_src: "{{ cup.volumes.root }}"
+    files:
+      - docker-compose.yml
