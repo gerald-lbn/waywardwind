@@ -1,0 +1,5 @@
+---
+shell: /usr/bin/fish
+
+packages:
+  - fish

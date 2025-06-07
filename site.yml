@@ -1,0 +1,9 @@
+---
+- hosts: departure
+  become: true
+
+  roles:
+    - role: system
+    - role: geerlingguy.security
+    - role: geerlingguy.pip
+    - role: geerlingguy.docker
