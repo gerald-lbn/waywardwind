@@ -11,4 +11,3 @@
     - role: docker/cup
     - role: docker/openbooks
     - role: docker/cwa
-    - role: docker/deluge
