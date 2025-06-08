@@ -1,0 +1,25 @@
+---
+- name: "Deluge - Create directories"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+  loop:
+    - "{{ deluge.volumes.root }}"
+    - "{{ deluge.volumes.config }}"
+
+- name: "Deluge - Create docker-compose.yml file"
+  ansible.builtin.template:
+    src: "{{ deluge.templates }}/docker-compose.yml.j2"
+    dest: "{{ deluge.volumes.root }}/docker-compose.yml"
+    mode: "0644"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: "Deluge - Start containers"
+  community.docker.docker_compose_v2:
+    project_src: "{{ deluge.volumes.root }}"
+    files:
+      - docker-compose.yml

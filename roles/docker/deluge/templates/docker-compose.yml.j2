@@ -1,0 +1,19 @@
+---
+services:
+  deluge:
+    image: lscr.io/linuxserver/deluge:latest
+    container_name: deluge
+    environment:
+      - PUID=1000
+      - PGID=1001
+      - TZ={{ docker.tz }}
+      # - DELUGE_LOGLEVEL=error #optional
+    volumes:
+      - {{ deluge.volumes.config }}:/config
+      - {{ data.downloads }}:/downloads
+    ports:
+      - {{ deluge.ports.webui }}:8112
+      - {{ deluge.ports.torrent }}:6881
+      - {{ deluge.ports.torrent }}:6881/udp
+      # - 58846:58846 #optional
+    restart: unless-stopped

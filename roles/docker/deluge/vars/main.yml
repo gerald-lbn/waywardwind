@@ -1,0 +1,8 @@
+deluge:
+  templates: "roles/docker/deluge/templates"
+  volumes:
+    root: "{{ docker.services_dir }}/deluge"
+    config: "{{ docker.services_dir }}/deluge/config"
+  ports:
+    webui: 9004
+    torrent: 6881

@@ -7,3 +7,4 @@
     group: "{{ username }}"
   loop:
     - "{{ data.books }}"
+    - "{{ data.downloads }}"
