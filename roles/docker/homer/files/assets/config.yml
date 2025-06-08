@@ -80,6 +80,11 @@ services:
         url: "https://radarr.video/"
         subtitle: "Movie collection manager"
 
+      - name: "Readarr"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/readarr.svg"
+        url: "https://readarr.com/"
+        subtitle: "eBook collection manager"
+
       - name: "Sonarr"
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/sonarr.svg"
         url: "https://sonarr.tv/"
@@ -97,16 +102,6 @@ services:
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/deluge.svg"
         url: "https://github.com/deluge-torrent/deluge"
         subtitle: "BitTorrent client"
-
-      - name: "OpenBooks"
-        icon: "fa-solid fa-book-open"
-        url: "https://github.com/evan-buss/openbooks"
-        subtitle: "eBook downloader from IRC channels"
-
-      - name: "SABnzbd"
-        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/sabnzbd.svg"
-        url: "https://sabnzbd.org/"
-        subtitle: "Usenet client"
 
   - name: "Services"
     icon: "fas fa-tools"
