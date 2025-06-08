@@ -2,7 +2,7 @@
 services:
   calibre-web-automated:
     image: crocodilestick/calibre-web-automated:latest
-    container_name: calibre-web-automated
+    container_name: cwa
     environment:
       # Only change these if you know what you're doing
       - PUID=1000
@@ -20,3 +20,25 @@ services:
       # Change the first number to change the port you want to access the Web UI, not the second
       - {{ cwa.ports.http }}:8083
     restart: unless-stopped
+
+  calibre-web-automated-book-downloader:
+    image: ghcr.io/calibrain/calibre-web-automated-book-downloader:latest
+    container_name: cwabd
+    depends_on:
+      - calibre-web-automated
+    environment:
+      FLASK_PORT: 8084
+      LOG_LEVEL: info
+      BOOK_LANGUAGE: fr
+      USE_BOOK_TITLE: true
+      TZ: {{ docker.tz }}
+      APP_ENV: prod
+      UID: 1000
+      GID: 1001
+    ports:
+      - {{ cwa.ports.downloader }}:8084
+    restart: unless-stopped
+    volumes:
+    # This is where the books will be downloaded to, usually it would be 
+    # the same as whatever you gave in "calibre-web-automated"
+      - {{ cwa.volumes.ingest }}:/cwa-book-ingest
