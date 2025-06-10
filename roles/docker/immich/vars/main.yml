@@ -1,0 +1,13 @@
+immich:
+  templates: "roles/docker/immich/templates"
+  volumes:
+    root: "{{ docker.services_dir }}/immich"
+    upload: "{{ docker.services_dir }}/immich/upload"
+    db_data: "{{ docker.services_dir }}/immich/postgres"
+  ports:
+    http: 2283
+  env:
+    version: "release"
+    db_password: "{{ departure.immich.db_password }}"
+    db_username: "{{ departure.immich.db_username }}"
+    db_name: "{{ departure.immich.db_name }}"

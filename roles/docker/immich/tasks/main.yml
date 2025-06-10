@@ -1,0 +1,26 @@
+---
+- name: "Immich - Create directories"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+  loop:
+    - "{{ immich.volumes.root }}"
+    - "{{ immich.volumes.upload }}"
+    - "{{ immich.volumes.db_data }}"
+
+- name: "Immich - Create docker-compose.yml file"
+  ansible.builtin.template:
+    src: "{{ immich.templates }}/docker-compose.yml.j2"
+    dest: "{{ immich.volumes.root }}/docker-compose.yml"
+    mode: "0644"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: "Immich - Start containers"
+  community.docker.docker_compose_v2:
+    project_src: "{{ immich.volumes.root }}"
+    files:
+      - docker-compose.yml

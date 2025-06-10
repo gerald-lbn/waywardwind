@@ -11,3 +11,4 @@
     - role: docker/cup
     - role: docker/deluge
     - role: docker/cwa
+    - role: docker/immich

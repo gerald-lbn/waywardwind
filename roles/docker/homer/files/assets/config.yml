@@ -8,7 +8,7 @@ logo: "assets/logo.png"
 
 header: true
 footer: false
-columns: 4
+columns: 3
 
 defaults:
   colorTheme: dark
@@ -47,47 +47,6 @@ services:
         url: "https://github.com/crocodilestick/Calibre-Web-Automated"
         subtitle: "eBook library"
 
-      - name: "Immich"
-        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/immich.svg"
-        url: "https://immich.app/"
-        subtitle: "Photo and video manager"
-
-      - name: "Jellyfin"
-        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/jellyfin.svg"
-        url: "https://jellyfin.org/"
-        subtitle: "Media server"
-
-      - name: "Jellyseerr"
-        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/jellyseerr.svg"
-        url: "https://docs.jellyseerr.dev/"
-        subtitle: "Request management for Jellyfin"
-
-  - name: "*Arr Stack"
-    icon: "fas fa-cubes"
-    items:
-      - name: "Bazarr"
-        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/png/bazarr.png"
-        url: "https://www.bazarr.media"
-        subtitle: "Subtitle management"
-
-      - name: "Lidarr"
-        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/lidarr.svg"
-        url: "https://lidarr.audio/"
-        subtitle: "Music collection manager"
-
-      - name: "Radarr"
-        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/radarr.svg"
-        url: "https://radarr.video/"
-        subtitle: "Movie collection manager"
-
-      - name: "Sonarr"
-        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/sonarr.svg"
-        url: "https://sonarr.tv/"
-        subtitle: "TV series collection manager"
-
-  - name: "Download Clients"
-    icon: "fa fa-download"
-    items:
       - name: "CWABD"
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/calibre-web.svg"
         url: "https://github.com/calibrain/calibre-web-automated-book-downloader"
@@ -97,6 +56,11 @@ services:
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/deluge.svg"
         url: "https://github.com/deluge-torrent/deluge"
         subtitle: "BitTorrent client"
+
+      - name: "Immich"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/immich.svg"
+        url: "https://immich.app/"
+        subtitle: "Photo and video manager"
 
   - name: "Services"
     icon: "fas fa-tools"
