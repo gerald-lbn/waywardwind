@@ -10,6 +10,14 @@
     - "{{ duplicati.volumes.root }}"
     - "{{ duplicati.volumes.config }}"
 
+- name: "Duplicati - Copy notification script"
+  ansible.builtin.copy:
+    src: "{{ duplicati.files.notification_script }}"
+    dest: "{{ duplicati.volumes.root }}/send-notification.sh"
+    mode: "0755"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
 - name: "Duplicati - Create docker-compose.yml file"
   ansible.builtin.template:
     src: "{{ duplicati.templates }}/docker-compose.yml.j2"

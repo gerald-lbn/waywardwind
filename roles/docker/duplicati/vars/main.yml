@@ -1,8 +1,13 @@
 duplicati:
   templates: "roles/docker/duplicati/templates"
+  files:
+    notification_script: "roles/docker/duplicati/files/send-notification.sh"
   volumes:
     root: "{{ docker.services_dir }}/duplicati"
     config: "{{ docker.services_dir }}/duplicati/config"
     source: "/"
+  cli_args:
+    run_script_before: "/root/send-notification.sh"
+    run_script_after: "/root/send-notification.sh"
   ports:
     http: 8200
