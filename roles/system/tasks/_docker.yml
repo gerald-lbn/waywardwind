@@ -6,5 +6,6 @@
     owner: "{{ username }}"
     group: "{{ username }}"
   loop:
+    - "{{ data.backups }}"
     - "{{ data.books }}"
     - "{{ data.downloads }}"

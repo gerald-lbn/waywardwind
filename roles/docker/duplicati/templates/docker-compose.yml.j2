@@ -1,0 +1,19 @@
+---
+services:
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    container_name: duplicati
+    environment:
+      - PUID=1000
+      - PGID=1001
+      - TZ={{ docker.tz }}
+      - SETTINGS_ENCRYPTION_KEY={{ departure.duplicati.SETTINGS_ENCRYPTION_KEY }}
+      - CLI_ARGS= #optional
+      - DUPLICATI__WEBSERVICE_PASSWORD={{ departure.duplicati.DUPLICATI__WEBSERVICE_PASSWORD }} #optional
+    volumes:
+      - {{ duplicati.volumes.config }}:/config
+      - {{ data.backups }}:/backups
+      - {{ duplicati.volumes.source }}:/source
+    ports:
+      - {{ duplicati.ports.http }}:8200
+    restart: unless-stopped

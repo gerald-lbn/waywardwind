@@ -1,0 +1,8 @@
+duplicati:
+  templates: "roles/docker/duplicati/templates"
+  volumes:
+    root: "{{ docker.services_dir }}/duplicati"
+    config: "{{ docker.services_dir }}/duplicati/config"
+    source: "/"
+  ports:
+    http: 8200

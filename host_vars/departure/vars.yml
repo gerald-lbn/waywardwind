@@ -19,5 +19,6 @@ docker:
 
 # Location for media files (books, music, videos, etc.)
 data:
+  backups: "/data/backups"
   books: "/data/books"
   downloads: "/data/downloads"

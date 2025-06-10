@@ -1,0 +1,25 @@
+---
+- name: "Duplicati - Create directories"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+  loop:
+    - "{{ duplicati.volumes.root }}"
+    - "{{ duplicati.volumes.config }}"
+
+- name: "Duplicati - Create docker-compose.yml file"
+  ansible.builtin.template:
+    src: "{{ duplicati.templates }}/docker-compose.yml.j2"
+    dest: "{{ duplicati.volumes.root }}/docker-compose.yml"
+    mode: "0644"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: "Duplicati - Start containers"
+  community.docker.docker_compose_v2:
+    project_src: "{{ duplicati.volumes.root }}"
+    files:
+      - docker-compose.yml
