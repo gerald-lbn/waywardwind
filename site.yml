@@ -13,3 +13,4 @@
     - role: docker/cwa
     - role: docker/immich
     - role: docker/duplicati
+    - role: docker/ntfy

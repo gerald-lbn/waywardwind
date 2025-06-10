@@ -1,0 +1,8 @@
+ntfy:
+  templates: "roles/docker/ntfy/templates"
+  volumes:
+    root: "{{ docker.services_dir }}/ntfy"
+    cache: "{{ docker.services_dir }}/ntfy/cache"
+    etc: "{{ docker.services_dir }}/ntfy/etc"
+  ports:
+    http: 9006

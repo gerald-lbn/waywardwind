@@ -1,0 +1,26 @@
+---
+- name: "Ntfy - Create directories"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+  loop:
+    - "{{ ntfy.volumes.root }}"
+    - "{{ ntfy.volumes.cache }}"
+    - "{{ ntfy.volumes.etc }}"
+
+- name: "Ntfy - Create docker-compose.yml file"
+  ansible.builtin.template:
+    src: "{{ ntfy.templates }}/docker-compose.yml.j2"
+    dest: "{{ ntfy.volumes.root }}/docker-compose.yml"
+    mode: "0644"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: "Ntfy - Start containers"
+  community.docker.docker_compose_v2:
+    project_src: "{{ ntfy.volumes.root }}"
+    files:
+      - docker-compose.yml
