@@ -1,0 +1,7 @@
+lazylibrarian:
+  templates: "roles/docker/lazylibrarian/templates"
+  volumes:
+    root: "{{ docker.services_dir }}/lazylibrarian"
+    config: "{{ docker.services_dir }}/lazylibrarian/config"
+  ports:
+    http: 5299

@@ -62,6 +62,11 @@ services:
         url: "https://immich.app/"
         subtitle: "Photo and video manager"
 
+      - name: "LazyLibrarian"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/png/lazylibrarian.png"
+        url: "https://lazylibrarian.gitlab.io/"
+        subtitle: "Automated book downloader"
+
   - name: "Services"
     icon: "fas fa-tools"
     items:
