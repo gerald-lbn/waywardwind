@@ -85,11 +85,6 @@ services:
         url: "http://nextcloud.com"
         subtitle: "Cloud storage & collaboration"
 
-      - name: "µBin"
-        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/microbin.svg"
-        url: "https://microbin.eu/"
-        subtitle: "Pastebin service"
-
       - name: "Vaultwarden"
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/bitwarden.svg"
         url: "https://github.com/dani-garcia/vaultwarden"
@@ -107,11 +102,6 @@ services:
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/duplicati.svg"
         url: "https://duplicati.com/"
         subtitle: "Backup solution"
-
-      - name: "Nginx Proxy Manager"
-        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/nginx-proxy-manager.svg"
-        url: "https://nginxproxymanager.com/"
-        subtitle: "Reverse proxy manager"
 
       - name: "Ntfy"
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/ntfy.svg"
