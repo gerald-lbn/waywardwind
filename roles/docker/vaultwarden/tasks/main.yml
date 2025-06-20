@@ -1,0 +1,25 @@
+---
+- name: "Vaultwarden - Create directories"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+  loop:
+    - "{{ vaultwarden.volumes.root }}"
+    - "{{ vaultwarden.volumes.data }}"
+
+- name: "Vaultwarden - Create docker-compose.yml file"
+  ansible.builtin.template:
+    src: "{{ vaultwarden.templates }}/docker-compose.yml.j2"
+    dest: "{{ vaultwarden.volumes.root }}/docker-compose.yml"
+    mode: "0644"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: "Vaultwarden - Start containers"
+  community.docker.docker_compose_v2:
+    project_src: "{{ vaultwarden.volumes.root }}"
+    files:
+      - docker-compose.yml

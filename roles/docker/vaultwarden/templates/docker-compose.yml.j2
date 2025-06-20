@@ -1,0 +1,11 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    environment:
+      DOMAIN: {{ vaultwarden.domain}}
+    volumes:
+      - {{ vaultwarden.volumes.data }}:/data/
+    ports:
+      - {{ vaultwarden.ports.http }}:80
