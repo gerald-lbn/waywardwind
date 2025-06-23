@@ -18,7 +18,13 @@ docker:
   tz: "Europe/Paris"
 
 # Location for media files (books, music, videos, etc.)
-data:
-  backups: "/data/backups"
-  books: "/data/books"
-  downloads: "/data/downloads"
+media:
+  root: "/data/media"
+  backups: "/data/media/backups"
+  books: "/data/media/books"
+  movies: "/data/media/movies"
+  tv: "/data/media/tvshows"
+# Location for torrent
+torrents:
+  root: "/data/torrents"
+  downloads: "/data/torrents/downloads"

@@ -12,7 +12,7 @@ services:
       - DUPLICATI__WEBSERVICE_PASSWORD={{ departure.duplicati.DUPLICATI__WEBSERVICE_PASSWORD }} #optional
     volumes:
       - {{ duplicati.volumes.config }}:/config
-      - {{ data.backups }}:/backups
+      - {{ media.backups }}:/backups
       - {{ duplicati.volumes.source }}:/source
       - {{ duplicati.volumes.root }}:/root
     ports:

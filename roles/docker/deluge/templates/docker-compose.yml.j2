@@ -10,7 +10,7 @@ services:
       # - DELUGE_LOGLEVEL=error #optional
     volumes:
       - {{ deluge.volumes.config }}:/config
-      - {{ data.downloads }}:/downloads
+      - {{ torrents.downloads }}:/downloads
     ports:
       - {{ deluge.ports.webui }}:8112
       - {{ deluge.ports.torrent }}:6881

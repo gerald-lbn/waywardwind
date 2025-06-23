@@ -11,7 +11,7 @@ services:
     volumes:
       - {{ lazylibrarian.volumes.config }}:/config
       - {{ cwa.volumes.ingest }}:/downloads
-      - {{ data.books }}:/books #optional
+      - {{ media.books }}:/books #optional
     ports:
       - {{ lazylibrarian.ports.http }}:5299
     restart: unless-stopped
