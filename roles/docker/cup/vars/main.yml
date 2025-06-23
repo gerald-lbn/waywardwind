@@ -1,8 +1,0 @@
-cup:
-  templates: "roles/docker/cup/templates"
-  files: "roles/docker/cup/files"
-  volumes:
-    root: "{{ docker.services_dir }}/cup"
-    config: "{{ docker.services_dir }}/cup/config"
-  ports:
-    http: 9001
