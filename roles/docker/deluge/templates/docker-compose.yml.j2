@@ -11,6 +11,8 @@ services:
     volumes:
       - {{ deluge.volumes.config }}:/config
       - {{ torrents.downloads }}:/downloads
+      - {{ media.movies }}:/movies
+      - {{ media.tv }}:/tv
     ports:
       - {{ deluge.ports.webui }}:8112
       - {{ deluge.ports.torrent }}:6881
