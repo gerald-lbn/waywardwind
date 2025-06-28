@@ -1,14 +1,14 @@
 ---
 # Homepage configuration
 # See https://fontawesome.com/search for icons options
-title: "Land Of Departure"
-subtitle: "A place between the realms of light and darkness"
+title: "WaywardWind"
+# subtitle: "I've become a part of their heart, just as they've become mine"
 logo: "assets/logo.png"
 # icon: "fas fa-skull-crossbones" # Optional icon
 
 header: true
 footer: false
-columns: 3
+columns: 4
 
 defaults:
   colorTheme: dark
@@ -44,81 +44,120 @@ services:
     items:
       - name: "Calibre-web automated"
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/calibre.svg"
-        url: "https://github.com/crocodilestick/Calibre-Web-Automated"
+        url: ""
         subtitle: "eBook library"
+        quick:
+          - name: "Local"
+            logo: "fa-solid fa-arrow-up-right-from-square"
+            url: "http://192.168.29.136:9003"
+          - name: "Remote"
+            logo: "fa-solid fa-arrow-up-right-from-square"
+            url: "https://books.radiant.garden"
 
       - name: "CWABD"
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/calibre-web.svg"
-        url: "https://github.com/calibrain/calibre-web-automated-book-downloader"
+        url: "http://192.168.29.136:9005"
         subtitle: "Download eBooks"
 
       - name: "Deluge"
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/deluge.svg"
-        url: "https://github.com/deluge-torrent/deluge"
+        url: "http://192.168.29.136:9004"
         subtitle: "BitTorrent client"
 
       - name: "Immich"
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/immich.svg"
-        url: "https://immich.app/"
+        url: ""
         subtitle: "Photo and video manager"
+        quick:
+          - name: "Local"
+            logo: "fa-solid fa-arrow-up-right-from-square"
+            url: "http://192.168.29.136:2283"
+          - name: "Remote"
+            logo: "fa-solid fa-arrow-up-right-from-square"
+            url: "https://photos.radiant.garden"
 
       - name: "LazyLibrarian"
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/png/lazylibrarian.png"
-        url: "https://lazylibrarian.gitlab.io/"
+        url: "http://192.168.29.136:5299"
         subtitle: "Automated book downloader"
 
   - name: "Services"
     icon: "fas fa-tools"
     items:
-      - name: "Excalidraw"
-        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/excalidraw.svg"
-        url: "https://excalidraw.com/"
-        subtitle: "Virtual whiteboard"
-
-      - name: "Linkwarden"
-        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/png/linkwarden.png"
-        url: "https://linkwarden.app/"
-        subtitle: "Bookmark manager"
-
       - name: "Nextcloud"
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/nextcloud.svg"
-        url: "http://nextcloud.com"
+        url: "http://nextcloud.radiant.garden"
         subtitle: "Cloud storage & collaboration"
 
       - name: "Vaultwarden"
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/bitwarden.svg"
-        url: "https://github.com/dani-garcia/vaultwarden"
+        url: "https://vaultwarden.radiant.garden"
         subtitle: "Password manager"
 
   - name: "Infrastructure"
     icon: "fas fa-server"
     items:
-      - name: "Cup"
-        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/cup-updates.svg"
-        url: "https://github.com/sergi0g/cup"
-        subtitle: "Container updates monitoring"
-
       - name: "Duplicati"
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/duplicati.svg"
-        url: "https://duplicati.com/"
+        url: "http://192.168.29.136:8200"
         subtitle: "Backup solution"
 
       - name: "Ntfy"
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/ntfy.svg"
-        url: "https://ntfy.sh/"
+        url: "http://192.168.29.136:9006"
         subtitle: "Push notifications"
 
-      - name: "Portainer"
-        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/portainer.svg"
-        url: "https://www.portainer.io/"
-        subtitle: "Docker management"
+      - name: "Pocket ID"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/pocket-id.svg"
+        url: "https://pocket-id.org/"
+        subtitle: "OIDC authentication provider"
 
       - name: "Tailscale"
         logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/tailscale.svg"
         url: "https://tailscale.com/"
         subtitle: "VPN network"
 
-      - name: "Uptime Kuma"
-        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/uptime-kuma.svg"
-        url: "https://uptime.kuma.pet/"
-        subtitle: "Service monitoring"
+      - name: "Traefik"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/traefik.svg"
+        url: "http://192.168.29.136:9007"
+        subtitle: "Reverse proxy"
+
+  - name: "*arr"
+    icon: "fas fa-film"
+    items:
+      - name: "Bazarr"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/png/bazarr.png"
+        url: "http://192.168.29.136:6767"
+        subtitle: "Subtitle management"
+
+      - name: "Jellyfin"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/jellyfin.svg"
+        url: ""
+        subtitle: "Media server"
+        quick:
+          - name: "Local"
+            logo: "fa-solid fa-arrow-up-right-from-square"
+            url: "http://192.168.29.136:8096"
+          - name: "Remote"
+            logo: "fa-solid fa-arrow-up-right-from-square"
+            url: "https://jellyfin.radiant.garden"
+
+      - name: "Jellyseerr"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/jellyseerr.svg"
+        url: "http://192.168.29.136:5055"
+        subtitle: "Media request management"
+
+      - name: "Prowlarr"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/prowlarr.svg"
+        url: "http://192.168.29.136:9696"
+        subtitle: "Indexer manager"
+
+      - name: "Sonarr"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/sonarr.svg"
+        url: "http://192.168.29.136:8989"
+        subtitle: "TV series management"
+
+      - name: "Radarr"
+        logo: "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/radarr.svg"
+        url: "http://192.168.29.136:7878"
+        subtitle: "Movie management"

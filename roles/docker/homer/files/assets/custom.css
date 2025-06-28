@@ -3,37 +3,6 @@
 /* Custom card colors */
 /* Use with `class:` property of services in config.yml */
 body #app {
-  #bighead {
-    section.first-line {
-      background-color: transparent;
-      min-height: unset;
-    }
-
-    span.headline {
-      color: var(--text-subtitle);
-      font-weight: 300;
-    }
-
-    nav.navbar {
-      background-color: transparent;
-    }
-
-    .search-bar input {
-      background-color: transparent;
-      color: var(--text);
-    }
-
-    /* Hide theme toggle */
-    a.navbar-item[aria-label="Toggle dark mode"] {
-      display: none;
-    }
-
-
-    /* Zero width search */
-    .search-bar input:not(:focus) {
-      width: 0;
-    }
-  }
 
   div.layout-vertical {
     /* Add gap between cards */
