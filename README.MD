@@ -1,8 +1,8 @@
 <p align="center">
   <p align="center">
-   <img width="150" height="150" src=".assets/logo.png" alt="Land of Departure Logo from KHBBS">
+   <img width="150" height="150" src=".assets/logo.png" alt="WaywardWind Keyblade">
   </p>
-	<h1 align="center"><b>Land Of Departure</b></h1>
+	<h1 align="center"><b>WaywardWind</b></h1>
 	<p align="center">
 		IaC for my homelab, built with Ansible
   </p>
