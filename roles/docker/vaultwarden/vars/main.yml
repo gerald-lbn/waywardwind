@@ -5,4 +5,4 @@ vaultwarden:
     data: "{{ docker.services_dir }}/vaultwarden/data"
   ports:
     http: 8080
-  domain: "{{ departure.vaultwarden.domain }}"
+  domain: "{{ waywardwind.vaultwarden.domain }}"

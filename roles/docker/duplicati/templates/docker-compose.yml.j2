@@ -7,9 +7,9 @@ services:
       - PUID=1000
       - PGID=1001
       - TZ={{ docker.tz }}
-      - SETTINGS_ENCRYPTION_KEY={{ departure.duplicati.SETTINGS_ENCRYPTION_KEY }}
+      - SETTINGS_ENCRYPTION_KEY={{ waywardwind.duplicati.SETTINGS_ENCRYPTION_KEY }}
       - CLI_ARGS="--run-script-before {{ duplicati.cli_args.run_script_before }} --run-script-after {{ duplicati.cli_args.run_script_after }}"
-      - DUPLICATI__WEBSERVICE_PASSWORD={{ departure.duplicati.DUPLICATI__WEBSERVICE_PASSWORD }} #optional
+      - DUPLICATI__WEBSERVICE_PASSWORD={{ waywardwind.duplicati.DUPLICATI__WEBSERVICE_PASSWORD }} #optional
     volumes:
       - {{ duplicati.volumes.config }}:/config
       - {{ media.backups }}:/backups

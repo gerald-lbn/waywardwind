@@ -1,5 +1,5 @@
-username: "{{ departure.username }}"
-password: "{{ departure.password }}"
+username: "{{ waywardwind.username }}"
+password: "{{ waywardwind.password }}"
 
 # Geerlingguy Security
 security_ssh_port: 22

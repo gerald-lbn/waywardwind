@@ -8,6 +8,6 @@ immich:
     http: 2283
   env:
     version: "release"
-    db_password: "{{ departure.immich.db_password }}"
-    db_username: "{{ departure.immich.db_username }}"
-    db_name: "{{ departure.immich.db_name }}"
+    db_password: "{{ waywardwind.immich.db_password }}"
+    db_username: "{{ waywardwind.immich.db_username }}"
+    db_name: "{{ waywardwind.immich.db_name }}"
