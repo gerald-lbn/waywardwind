@@ -1,0 +1,30 @@
+---
+- name: "Arr Stack - Create directories"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+  loop:
+    - "{{ arr.root }}"
+    - "{{ arr.jellyfin.volumes.config }}"
+    - "{{ arr.sonarr.volumes.config }}"
+    - "{{ arr.radarr.volumes.config }}"
+    - "{{ arr.prowlarr.volumes.config }}"
+    - "{{ arr.bazarr.volumes.config }}"
+    - "{{ arr.jellyseerr.volumes.config }}"
+
+- name: "Arr Stack - Create docker-compose.yml file"
+  ansible.builtin.template:
+    src: "{{ arr.templates }}/docker-compose.yml.j2"
+    dest: "{{ arr.root }}/docker-compose.yml"
+    mode: "0644"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: "Arr Stack - Start containers"
+  community.docker.docker_compose_v2:
+    project_src: "{{ arr.root }}"
+    files:
+      - docker-compose.yml

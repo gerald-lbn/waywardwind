@@ -1,0 +1,43 @@
+arr:
+  templates: "roles/docker/arr/templates"
+  root: "{{ docker.services_dir }}/arr"
+
+  jellyfin:
+    volumes:
+      config: "{{ docker.services_dir }}/arr/jellyfin"
+    ports:
+      http: 8096
+
+  sonarr:
+    volumes:
+      config: "{{ docker.services_dir }}/arr/sonarr"
+    ports:
+      http: 8989
+
+  radarr:
+    volumes:
+      config: "{{ docker.services_dir }}/arr/radarr"
+    ports:
+      http: 7878
+
+  prowlarr:
+    volumes:
+      config: "{{ docker.services_dir }}/arr/prowlarr"
+    ports:
+      http: 9696
+
+  bazarr:
+    volumes:
+      config: "{{ docker.services_dir }}/arr/bazarr"
+    ports:
+      http: 6767
+
+  jellyseerr:
+    volumes:
+      config: "{{ docker.services_dir }}/arr/jellyseerr"
+    ports:
+      http: 5055
+
+  flaresolverr:
+    ports:
+      http: 8191
