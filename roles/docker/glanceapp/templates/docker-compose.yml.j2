@@ -1,0 +1,21 @@
+services:
+  glance:
+    container_name: glance
+    image: glanceapp/glance
+    restart: always
+    volumes:
+      - ./config:/app/config
+      - ./assets:/app/assets
+      - ./.env:/app/.env
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - {{ glanceapp.ports.http }}:8080
+    env_file: .env
+    develop:
+      watch:
+        - action: sync+restart
+          path: ./config
+          target: /app/config
+        - action: sync+restart
+          path: ./assets
+          target: /app/assets

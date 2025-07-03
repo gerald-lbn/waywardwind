@@ -3,3 +3,8 @@
 
 # Secrets
 secret*.*
+
+# Environment files
+.env
+.env.*
+!.env.example

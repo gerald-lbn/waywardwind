@@ -1,0 +1,30 @@
+auth:
+  secret-key: "${SECRET_KEY}"
+  users:
+    gerald:
+      password: "${PASSWORD}"
+
+server:
+  assets-path: /app/assets
+  proxy: true
+
+branding:
+  logo-url: /assets/logo.png
+  favicon-url: /assets/logo.png
+  app-name: "Radiant Garden"
+  app-icon-url: /assets/logo.png
+
+theme:
+  # Note: assets are cached by the browser, changes to the CSS file
+  # will not be reflected until the browser cache is cleared (Ctrl+F5)
+  custom-css-file: /assets/user.css
+  presets:
+    kanegawa-dark:
+      dark: true
+      background-color: 240 13 14
+      primary-color: 51 33 68
+      negative-color: 358 100 68
+      contrast-multiplier: 1.3
+
+pages:
+  - $include: home.yml

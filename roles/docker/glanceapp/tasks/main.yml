@@ -1,0 +1,41 @@
+---
+- name: "Glance - Create directories"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+  loop:
+    - "{{ glanceapp.volumes.root }}"
+    - "{{ glanceapp.volumes.config }}"
+    - "{{ glanceapp.volumes.assets }}"
+
+- name: "Glance - Copy configuration files"
+  ansible.builtin.copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "0644"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+  loop:
+    - src: "{{ glanceapp.files }}/config/"
+      dest: "{{ glanceapp.volumes.config }}/"
+    - src: "{{ glanceapp.files }}/assets/"
+      dest: "{{ glanceapp.volumes.assets }}/"
+    - src: "{{ glanceapp.files }}/.env"
+      dest: "{{ glanceapp.volumes.root }}/.env"
+
+- name: "Glance - Create docker-compose.yml file"
+  ansible.builtin.template:
+    src: "{{ glanceapp.templates }}/docker-compose.yml.j2"
+    dest: "{{ glanceapp.volumes.root }}/docker-compose.yml"
+    mode: "0644"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: "Glance - Start containers"
+  community.docker.docker_compose_v2:
+    project_src: "{{ glanceapp.volumes.root }}"
+    files:
+      - docker-compose.yml
