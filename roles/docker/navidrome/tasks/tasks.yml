@@ -1,0 +1,25 @@
+---
+- name: "Navidrome - Create directories"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+  loop:
+    - "{{ navidrome.volumes.root }}"
+    - "{{ navidrome.volumes.data }}"
+
+- name: "Navidrome - Create docker-compose.yml file"
+  ansible.builtin.template:
+    src: "{{ navidrome.templates }}/docker-compose.yml.j2"
+    dest: "{{ navidrome.volumes.root }}/docker-compose.yml"
+    mode: "0644"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: "Navidrome - Start containers"
+  community.docker.docker_compose_v2:
+    project_src: "{{ navidrome.volumes.root }}"
+    files:
+      - docker-compose.yml

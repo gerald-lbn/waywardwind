@@ -1,0 +1,11 @@
+services:
+  navidrome:
+    container_name: navidrome
+    image: deluan/navidrome:latest
+    user: 1000:1000 # should be owner of volumes
+    ports:
+      - "{{ navidrome.ports.http }}:4533"
+    restart: unless-stopped
+    volumes:
+      - "{{ navidrome.volumes.root }}:/data"
+      - "{{ navidrome.volumes.music }}:/music:ro"

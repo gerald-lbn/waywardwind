@@ -8,6 +8,9 @@
           cache: 1m
           title: "Media"
           sites:
+            - title: Booklore
+              url: ${BASE_URL}:9002
+              icon: https://raw.githubusercontent.com/adityachandelgit/BookLore/refs/heads/develop/assets/favicons/android-chrome-512x512.png
             - title: Calibre Web Automated
               url: ${BASE_URL}:9003
               icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/calibre.svg
@@ -20,14 +23,14 @@
             - title: Jellyseerr
               url: ${BASE_URL}:5055
               icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/jellyseerr.svg
+            - title: Navidrome
+              url: ${BASE_URL}:4533
+              icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/navidrome.svg
 
         - type: monitor
           cache: 1m
           title: "*Arr"
           sites:
-            - title: Bazaar
-              url: ${BASE_URL}:6767
-              icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/bazarr.png
             - title: Prowlarr
               url: ${BASE_URL}:9696
               icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/prowlarr.svg

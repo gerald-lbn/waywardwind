@@ -1,0 +1,8 @@
+navidrome:
+  templates: "roles/docker/navidrome/templates"
+  volumes:
+    root: "{{ docker.services_dir }}/navidrome"
+    data: "{{ docker.services_dir }}/navidrome/data"
+    music: "{{ media.root }}/music"
+  ports:
+    http: 4533
