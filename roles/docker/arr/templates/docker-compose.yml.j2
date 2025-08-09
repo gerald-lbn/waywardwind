@@ -57,20 +57,6 @@ services:
     ports:
       - {{ arr.prowlarr.ports.http }}:9696
     restart: unless-stopped
-  bazarr:
-    image: lscr.io/linuxserver/bazarr:latest
-    container_name: bazarr
-    environment:
-      - PUID=1000
-      - PGID=1001
-      - TZ={{ docker.tz }}
-    volumes:
-      - {{ arr.bazarr.volumes.config }}:/config
-      - {{ media.movies }}:/movies #optional
-      - {{ media.tv }}:/tv #optional
-    ports:
-      - {{ arr.bazarr.ports.http }}:6767
-    restart: unless-stopped
   jellyseerr:
     image: fallenbagel/jellyseerr:latest
     container_name: jellyseerr

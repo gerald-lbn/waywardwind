@@ -26,12 +26,6 @@ arr:
     ports:
       http: 9696
 
-  bazarr:
-    volumes:
-      config: "{{ docker.services_dir }}/arr/bazarr"
-    ports:
-      http: 6767
-
   jellyseerr:
     volumes:
       config: "{{ docker.services_dir }}/arr/jellyseerr"
