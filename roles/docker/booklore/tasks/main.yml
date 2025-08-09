@@ -1,0 +1,26 @@
+---
+- name: "Booklore - Create directories"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+  loop:
+    - "{{ booklore.volumes.root }}"
+    - "{{ booklore.volumes.data }}"
+    - "{{ booklore.volumes.config }}"
+
+- name: "Booklore - Create docker-compose.yml file"
+  ansible.builtin.template:
+    src: "{{ booklore.templates }}/docker-compose.yml.j2"
+    dest: "{{ booklore.volumes.root }}/docker-compose.yml"
+    mode: "0644"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: "Booklore - Start containers"
+  community.docker.docker_compose_v2:
+    project_src: "{{ booklore.volumes.root }}"
+    files:
+      - docker-compose.yml
