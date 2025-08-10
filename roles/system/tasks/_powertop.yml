@@ -9,7 +9,7 @@
 
       [Service]
       Type=simple
-      ExecStart=/usr/bin/powertop --auto-tune
+      ExecStart=/usr/sbin/powertop --auto-tune
       Restart=always
 
       [Install]
