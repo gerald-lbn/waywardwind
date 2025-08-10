@@ -1,0 +1,23 @@
+---
+- name: Create powertop auto-tune service
+  ansible.builtin.copy:
+    dest: /etc/systemd/system/powertop.service
+    content: |
+      [Unit]
+      Description=Powertop Auto-Tune Service
+      After=multi-user.target
+
+      [Service]
+      Type=simple
+      ExecStart=/usr/bin/powertop --auto-tune
+      Restart=always
+
+      [Install]
+      WantedBy=multi-user.target
+
+- name: Enable and start powertop service
+  ansible.builtin.systemd_service:
+    name: powertop.service
+    enabled: true
+    state: started
+    daemon_reload: true
