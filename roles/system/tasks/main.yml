@@ -3,4 +3,4 @@
 - include_tasks: _disks.yml
 - include_tasks: _users.yml
 - include_tasks: _docker.yml
-- include_tasks: _powertop.yml
+# - include_tasks: _powertop.yml
