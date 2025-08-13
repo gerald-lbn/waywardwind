@@ -1,1 +1,61 @@
 ---
+- name: Check if RAID array exists
+  ansible.builtin.command:
+    cmd: "mdadm --detail {{ raid.device_path }}"
+  register: raid_exists
+  failed_when: raid_exists.rc != 0
+
+- name: Create a RAID 5 array if it does not exist
+  ansible.builtin.expect:
+    command: "mdadm --create --verbose {{ raid.device_path }} --level={{ raid.level }} --raid-devices=4 {{ raid.devices | join(' ') }}"
+    responses:
+      "Continue creating array?": "y"
+  register: raid_creation
+  when: raid_exists.rc != 0
+
+- name: Create mdadm.conf if it does not exist
+  ansible.builtin.file:
+    path: /etc/mdadm/mdadm.conf
+    state: touch
+  when: raid_exists.rc != 0
+
+- name: Scan for RAID arrays
+  ansible.builtin.command:
+    cmd: "mdadm --detail --scan"
+  register: raid_scan
+
+- name: Update mdadm.conf with new RAID array
+  ansible.builtin.lineinfile:
+    path: /etc/mdadm/mdadm.conf
+    line: "{{ item }}"
+    state: present
+  loop: "{{ raid_scan.stdout_lines }}"
+  when: raid_exists.rc != 0
+
+- name: Create a ext4 filesystem on the RAID array
+  community.general.filesystem:
+    fstype: "{{ raid.fstype }}"
+    dev: "{{ raid.device_path }}"
+  when: raid_creation is succeeded
+
+- name: Create mount point for RAID array
+  ansible.builtin.file:
+    path: "{{ raid.mnt_path }}"
+    state: directory
+
+# - name: Mount the RAID array
+#   ansible.builtin.command:
+#     cmd: "mount {{ raid.device_path }} {{ raid.mnt_path }}"
+#   when: raid_creation is succeeded
+
+- name: Update initramfs
+  ansible.builtin.command:
+    cmd: "update-initramfs -u"
+  when: raid_creation is succeeded
+
+- name: Add RAID to fstab
+  ansible.builtin.lineinfile:
+    path: /etc/fstab
+    line: "{{ raid.device_path }} {{ raid.mnt_path }} {{ raid.fstype }} defaults 0 0"
+    state: present
+  when: raid_creation is succeeded
