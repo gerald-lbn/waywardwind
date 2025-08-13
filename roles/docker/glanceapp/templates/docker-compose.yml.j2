@@ -4,18 +4,12 @@ services:
     image: glanceapp/glance
     restart: always
     volumes:
-      - ./config:/app/config
-      - ./assets:/app/assets
-      - ./.env:/app/.env
+      - {{ glanceapp.volumes.config }}:/app/config
+      - {{ glanceapp.volumes.assets }}:/app/assets
+      - {{ glanceapp.volumes.root }}/.env:/app/.env
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - {{ raid.mnt_path }}:/app/raid:ro
     ports:
       - {{ glanceapp.ports.http }}:8080
-    env_file: .env
-    develop:
-      watch:
-        - action: sync+restart
-          path: ./config
-          target: /app/config
-        - action: sync+restart
-          path: ./assets
-          target: /app/assets
+    env_file: {{ glanceapp.volumes.root }}/.env
+

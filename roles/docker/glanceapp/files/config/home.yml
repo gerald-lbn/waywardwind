@@ -300,4 +300,10 @@
         - type: server-stats
           servers:
             - type: local
-              name: Services
+              name: "RadiantGarden"
+              hide-mountpoints-by-default: true
+              mountpoints:
+                "/":
+                  hide: false
+                "/app/raid":
+                  hide: false

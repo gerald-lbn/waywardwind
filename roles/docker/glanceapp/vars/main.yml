@@ -2,8 +2,8 @@ glanceapp:
   templates: "roles/docker/glanceapp/templates"
   files: "roles/docker/glanceapp/files"
   volumes:
-    root: "{{ docker.services_dir }}/glanceapp"
-    config: "{{ docker.services_dir }}/glanceapp/config"
-    assets: "{{ docker.services_dir }}/glanceapp/assets"
+    root: "{{ storage.docker }}/glanceapp"
+    config: "{{ storage.docker }}/glanceapp/config"
+    assets: "{{ storage.docker }}/glanceapp/assets"
   ports:
     http: 9000

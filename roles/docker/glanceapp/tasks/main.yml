@@ -7,7 +7,6 @@
     owner: "{{ username }}"
     group: "{{ username }}"
   loop:
-    - "{{ glanceapp.volumes.root }}"
     - "{{ glanceapp.volumes.config }}"
     - "{{ glanceapp.volumes.assets }}"
 
@@ -29,13 +28,13 @@
 - name: "Glance - Create docker-compose.yml file"
   ansible.builtin.template:
     src: "{{ glanceapp.templates }}/docker-compose.yml.j2"
-    dest: "{{ glanceapp.volumes.root }}/docker-compose.yml"
+    dest: "{{ storage.docker }}/glanceapp/docker-compose.yml"
     mode: "0644"
     owner: "{{ username }}"
     group: "{{ username }}"
 
 - name: "Glance - Start containers"
   community.docker.docker_compose_v2:
-    project_src: "{{ glanceapp.volumes.root }}"
+    project_src: "{{ storage.docker }}/glanceapp"
     files:
       - docker-compose.yml
