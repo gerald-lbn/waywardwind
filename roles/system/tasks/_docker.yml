@@ -3,6 +3,16 @@
     path: "{{ storage.backups }}"
     state: directory
 
+- name: Create Data folder
+  ansible.builtin.file:
+    path: "{{ storage.data }}"
+    state: directory
+
+- name: Create Docker config folder
+  ansible.builtin.file:
+    path: "{{ storage.docker }}"
+    state: directory
+
 - name: Create Media folder for hosted services
   ansible.builtin.file:
     path: "{{ item.value }}"
