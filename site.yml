@@ -1,5 +1,5 @@
 ---
-- hosts: waywardwind
+- hosts: radiant-garden
   become: true
 
   roles:
@@ -7,11 +7,14 @@
     - role: geerlingguy.security
     - role: geerlingguy.pip
     - role: geerlingguy.docker
-    - role: docker/homer
-    - role: docker/deluge
-    - role: docker/cwa
-    - role: docker/immich
-    - role: docker/duplicati
-    - role: docker/ntfy
-    - role: docker/lazylibrarian
-    - role: docker/vaultwarden
+    # - role: docker/traefik
+    # - role: docker/glanceapp
+    # - role: docker/deluge
+    # - role: docker/cwa
+    # - role: docker/booklore
+    # - role: docker/immich
+    # - role: docker/duplicati
+    # - role: docker/ntfy
+    # - role: docker/lazylibrarian
+    # - role: docker/vaultwarden
+    # - role: docker/navidrome

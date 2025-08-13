@@ -1,0 +1,41 @@
+username: "{{ waywardwind.username }}"
+password: "{{ waywardwind.password }}"
+
+# Geerlingguy Security
+security_ssh_port: 22
+security_ssh_password_authentication: "yes"
+security_ssh_permit_root_login: "no"
+security_ssh_usedns: "no"
+security_ssh_permit_empty_password: "no"
+security_ssh_challenge_response_auth: "no"
+security_ssh_gss_api_authentication: "no"
+security_ssh_x11_forwarding: "no"
+security_ssh_allowed_users: []
+security_ssh_allowed_groups: []
+
+raid:
+  device_path: /dev/md0
+  level: 5
+  devices:
+    - /dev/sda
+    - /dev/sdb
+    - /dev/sdc
+    - /dev/sdd
+  mnt_path: /mnt/raid
+  fstype: ext4
+
+docker:
+  services_dir: "/srv/docker"
+  tz: "Europe/Paris"
+
+storage:
+  backups: "{{ raid.mnt_path }}/backups"
+  media:
+    root: "{{ raid.mnt_path }}/data/media"
+    books: "{{ raid.mnt_path }}/data/media/books"
+    movies: "{{ raid.mnt_path }}/data/media/movies"
+    tv: "{{ raid.mnt_path }}/data/media/tvshows"
+  # Location for torrent
+  torrents:
+    root: "{{ raid.mnt_path }}/data/torrents"
+    downloads: "{{ raid.mnt_path }}/data/torrents/downloads"
