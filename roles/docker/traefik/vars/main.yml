@@ -1,0 +1,11 @@
+traefik:
+  templates: "roles/docker/traefik/templates"
+  files: "roles/docker/traefik/files"
+  volumes:
+    root: "{{ docker.services_dir }}/traefik"
+    config: "{{ docker.services_dir }}/traefik/traefik.yml"
+    docker_socket: "/var/run/docker.sock"
+  ports:
+    http: 8081
+    webui: 9007
+  network: "proxy"

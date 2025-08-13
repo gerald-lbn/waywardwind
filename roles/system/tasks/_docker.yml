@@ -1,3 +1,8 @@
+- name: Create Backup folder
+  ansible.builtin.file:
+    path: "{{ storage.backups }}"
+    state: directory
+
 - name: Create Media folder for hosted services
   ansible.builtin.file:
     path: "{{ item.value }}"
@@ -5,7 +10,7 @@
     mode: "0755"
     owner: "{{ username }}"
     group: "{{ username }}"
-  loop: "{{ media | dict2items }}"
+  loop: "{{ storage.media | dict2items }}"
 
 - name: Create Torrents folder for hosted services
   ansible.builtin.file:
@@ -14,4 +19,4 @@
     mode: "0755"
     owner: "{{ username }}"
     group: "{{ username }}"
-  loop: "{{ torrents | dict2items }}"
+  loop: "{{ storage.torrents | dict2items }}"

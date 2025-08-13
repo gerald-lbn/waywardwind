@@ -1,5 +1,5 @@
-username: "{{ waywardwind.username }}"
-password: "{{ waywardwind.password }}"
+username: "{{ host.username }}"
+password: "{{ host.password }}"
 
 # Geerlingguy Security
 security_ssh_port: 22
@@ -34,6 +34,7 @@ storage:
     root: "{{ raid.mnt_path }}/data/media"
     books: "{{ raid.mnt_path }}/data/media/books"
     movies: "{{ raid.mnt_path }}/data/media/movies"
+    music: "{{ raid.mnt_path }}/data/media/music"
     tv: "{{ raid.mnt_path }}/data/media/tvshows"
   # Location for torrent
   torrents:
