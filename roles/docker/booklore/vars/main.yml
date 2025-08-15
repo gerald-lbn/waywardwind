@@ -7,3 +7,7 @@ booklore:
     books: "{{ storage.media.books }}"
   ports:
     web: 9002
+
+cwabd:
+  ports:
+    downloader: 9005
