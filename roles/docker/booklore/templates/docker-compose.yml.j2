@@ -7,18 +7,18 @@ services:
       - PGID=1001
       - TZ={{ docker.tz }}
       - DATABASE_URL=jdbc:mariadb://mariadb:3306/booklore # Only modify this if you're familiar with JDBC and your database setup
-      - DATABASE_USERNAME={{ waywardwind.booklore.db_user }} # Must match MYSQL_USER defined in the mariadb container
-      - DATABASE_PASSWORD={{ waywardwind.booklore.db_password }} # Use a strong password; must match MYSQL_PASSWORD defined in the mariadb container 
+      - DATABASE_USERNAME={{ host.booklore.db_user }} # Must match MYSQL_USER defined in the mariadb container
+      - DATABASE_PASSWORD={{ host.booklore.db_password }} # Use a strong password; must match MYSQL_PASSWORD defined in the mariadb container 
       - SWAGGER_ENABLED=false # Enable or disable Swagger UI (API docs). Set to 'true' to allow access; 'false' to block access (recommended for production).
     depends_on:
       mariadb:
         condition: service_healthy
     ports:
       - "{{ booklore.ports.web }}:6060"
-      # - "{{ booklore.ports.swagger }}:8080" # Swagger UI port, change if needed
+      # - "\{\{ booklore.ports.swagger \}\}:8080" # Swagger UI port, change if needed
     volumes:
       - {{ booklore.volumes.data }}:/app/data
-      - {{ media.books }}:/books
+      - {{ booklore.volumes.books }}:/books
     restart: unless-stopped
 
   mariadb:
@@ -28,10 +28,10 @@ services:
       - PUID=1000
       - PGID=1001
       - TZ={{ docker.tz }}
-      - MYSQL_ROOT_PASSWORD={{ waywardwind.booklore.root_password }} # Use a strong password for the database's root user, should be different from MYSQL_PASSWORD
-      - MYSQL_DATABASE={{ waywardwind.booklore.db_name }}
-      - MYSQL_USER={{ waywardwind.booklore.db_user }} # Must match DATABASE_USERNAME defined in the booklore container
-      - MYSQL_PASSWORD={{ waywardwind.booklore.db_password }} # Use a strong password; must match DATABASE_PASSWORD defined in the booklore container
+      - MYSQL_ROOT_PASSWORD={{ host.booklore.root_password }} # Use a strong password for the database's root user, should be different from MYSQL_PASSWORD
+      - MYSQL_DATABASE={{ host.booklore.db_name }}
+      - MYSQL_USER={{ host.booklore.db_user }} # Must match DATABASE_USERNAME defined in the booklore container
+      - MYSQL_PASSWORD={{ host.booklore.db_password }} # Use a strong password; must match DATABASE_PASSWORD defined in the booklore container
     volumes:
       - {{ booklore.volumes.config }}:/config
     restart: unless-stopped

@@ -1,8 +1,9 @@
 booklore:
   templates: "roles/docker/booklore/templates"
   volumes:
-    root: "{{ docker.services_dir }}/booklore"
-    data: "{{ docker.services_dir }}/booklore/data"
-    config: "{{ docker.services_dir }}/booklore/config"
+    root: "{{ storage.docker }}/booklore"
+    data: "{{ storage.docker }}/booklore/data"
+    config: "{{ storage.docker }}/booklore/config"
+    books: "{{ storage.media.books }}"
   ports:
     web: 9002
