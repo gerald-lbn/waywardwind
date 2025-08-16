@@ -10,6 +10,11 @@
     - "{{ vaultwarden.volumes.root }}"
     - "{{ vaultwarden.volumes.data }}"
 
+- name: "Vaultwarden - Create .env file"
+  ansible.builtin.template:
+    src: "{{ vaultwarden.templates }}/.env.j2"
+    dest: "{{ vaultwarden.volumes.root }}/.env"
+
 - name: "Vaultwarden - Create docker-compose.yml file"
   ansible.builtin.template:
     src: "{{ vaultwarden.templates }}/docker-compose.yml.j2"

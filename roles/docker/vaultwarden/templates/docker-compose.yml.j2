@@ -4,8 +4,15 @@ services:
     container_name: vaultwarden
     restart: unless-stopped
     environment:
-      DOMAIN: {{ vaultwarden.domain}}
+      DOMAIN: "https://vaultwarden.{{ host.domain }}"
+      ADMIN_TOKEN: ${VAULTWARDEN_ADMIN_TOKEN}
     volumes:
       - {{ vaultwarden.volumes.data }}:/data/
     ports:
       - {{ vaultwarden.ports.http }}:80
+    networks:
+      - {{ docker.networks.cloudflared }}
+
+networks:
+  {{ docker.networks.cloudflared }}:
+    external: true

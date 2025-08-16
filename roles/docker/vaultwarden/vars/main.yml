@@ -1,8 +1,17 @@
 vaultwarden:
   templates: "roles/docker/vaultwarden/templates"
   volumes:
-    root: "{{ docker.services_dir }}/vaultwarden"
-    data: "{{ docker.services_dir }}/vaultwarden/data"
+    root: "{{ storage.docker }}/vaultwarden"
+    data: "{{ storage.docker }}/vaultwarden/data"
   ports:
     http: 8080
-  domain: "{{ host.vaultwarden.domain }}"
+  networks:
+    - "{{ docker.networks.cloudflared }}"
+  environment:
+    ADMIN_TOKEN: $ADMIN_TOKEN
+  env_file:
+    - .env
+
+networks:
+  "{{ docker.networks.cloudflared }}":
+    external: true
