@@ -1,0 +1,7 @@
+---
+cloudflared:
+  files: "roles/docker/cloudflared/files"
+  templates: "roles/docker/cloudflared/templates"
+  volumes:
+    root: "{{ storage.docker }}/cloudflared"
+  tunnel_token: "{{ host.cloudflare.cloudflared.tunnel_token }}"

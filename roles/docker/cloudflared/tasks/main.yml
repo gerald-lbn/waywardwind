@@ -1,0 +1,32 @@
+---
+- name: "Cloudflared - Create directories"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+  loop:
+    - "{{ cloudflared.volumes.root }}"
+
+- name: "Cloudflared - Create docker-compose.yml file"
+  ansible.builtin.template:
+    src: "{{ cloudflared.templates }}/docker-compose.yml.j2"
+    dest: "{{ cloudflared.volumes.root }}/docker-compose.yml"
+    mode: "0644"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: "Cloudflared - Add cert.pem file"
+  ansible.builtin.copy:
+    src: "{{ cloudflared.files }}/cert.pem"
+    dest: "{{ cloudflared.volumes.root }}/cert.pem"
+    mode: "0644"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: "Cloudflared - Start containers"
+  community.docker.docker_compose_v2:
+    project_src: "{{ cloudflared.volumes.root }}"
+    files:
+      - docker-compose.yml

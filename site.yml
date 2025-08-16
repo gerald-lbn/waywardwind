@@ -7,14 +7,15 @@
     - role: geerlingguy.security
     - role: geerlingguy.pip
     - role: geerlingguy.docker
+    - role: docker/cloudflared
     # - role: docker/traefik
-    # - role: docker/glanceapp
+    - role: docker/glanceapp
     # - role: docker/deluge
-    # - role: docker/cwa
     # - role: docker/booklore
     # - role: docker/immich
     # - role: docker/duplicati
     # - role: docker/ntfy
     # - role: docker/lazylibrarian
-    # - role: docker/vaultwarden
+    - role: docker/vaultwarden
     # - role: docker/navidrome
+    # - role: docker/nextcloud

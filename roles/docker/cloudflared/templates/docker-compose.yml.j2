@@ -1,0 +1,14 @@
+networks:
+  {{ docker.networks.cloudflared }}:
+    external: true
+
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token {{ cloudflared.tunnel_token }}
+    networks:
+      - {{ docker.networks.cloudflared }}
+    volumes:
+      - {{ cloudflared.volumes.root }}:/etc/cloudflared
