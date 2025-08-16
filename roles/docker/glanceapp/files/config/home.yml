@@ -1,6 +1,8 @@
 - name: Home
   desktop-navigation-width: slim
 
+  head-widgets:
+
   columns:
     - size: full
       widgets:
@@ -11,9 +13,9 @@
             - title: Booklore
               url: ${BASE_URL}:9002
               icon: https://raw.githubusercontent.com/adityachandelgit/BookLore/refs/heads/develop/assets/favicons/android-chrome-512x512.png
-            - title: Calibre Web Automated
-              url: ${BASE_URL}:9003
-              icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/calibre.svg
+            - title: Anna's Archive Downloader
+              url: ${BASE_URL}:9005
+              icon: https://software.annas-archive.li/AnnaArchivist/annas-archive/-/raw/main/assets/static/favicon.ico?ref_type=heads
             - title: Immich
               url: ${BASE_URL}:2283
               icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/immich.svg
@@ -52,7 +54,7 @@
               url: https://nextcloud.com/fr/
               icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/nextcloud.svg
             - title: Vaultwarden
-              url: https://github.com/dani-garcia/vaultwarden
+              url: https://vaultwarden.radiant.garden
               icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/vaultwarden.svg
 
         - type: monitor
@@ -65,20 +67,12 @@
             - title: Ntfy
               url: ${BASE_URL}:9006
               icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/ntfy.svg
-            - title: Tailscale
-              url: https://tailscale.com/
+            - title: Headscale
+              url: https://headscale.net/stable/
               icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/headscale.svg
             - title: Traefik
               url: ${BASE_URL}:9007
               icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/traefik.svg
-
-        - type: monitor
-          cache: 1m
-          title: Downloads
-          sites:
-            - title: Calibre Web Book Downloader
-              url: ${BASE_URL}:9005
-              icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/calibre.svg
             - title: Deluge
               url: ${BASE_URL}:9004
               icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/deluge.svg
@@ -302,6 +296,8 @@
             - type: local
               name: "RadiantGarden"
               hide-mountpoints-by-default: true
+              hide-swap: true
+              cpu-temp-sensor: true
               mountpoints:
                 "/":
                   hide: false
