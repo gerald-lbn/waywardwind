@@ -2,5 +2,6 @@
 - include_tasks: _essentials.yml
 - include_tasks: _disks.yml
 - include_tasks: _users.yml
+- include_tasks: _storage.yml
 - include_tasks: _docker.yml
 # - include_tasks: _powertop.yml

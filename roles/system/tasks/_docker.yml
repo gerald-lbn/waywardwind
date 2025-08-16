@@ -1,32 +1,7 @@
-- name: Create Backup folder
-  ansible.builtin.file:
-    path: "{{ storage.backups }}"
-    state: directory
-
-- name: Create Data folder
-  ansible.builtin.file:
-    path: "{{ storage.data }}"
-    state: directory
-
-- name: Create Docker config folder
-  ansible.builtin.file:
-    path: "{{ storage.docker }}"
-    state: directory
-
-- name: Create Media folder for hosted services
-  ansible.builtin.file:
-    path: "{{ item.value }}"
-    state: directory
-    mode: "0755"
-    owner: "{{ username }}"
-    group: "{{ username }}"
-  loop: "{{ storage.media | dict2items }}"
-
-- name: Create Torrents folder for hosted services
-  ansible.builtin.file:
-    path: "{{ item.value }}"
-    state: directory
-    mode: "0755"
-    owner: "{{ username }}"
-    group: "{{ username }}"
-  loop: "{{ storage.torrents | dict2items }}"
+---
+- name: Create docker networks
+  community.docker.docker_network:
+    name: "{{ item.value }}"
+    state: present
+    driver: "bridge"
+  loop: "{{ docker.networks | dict2items }}"
