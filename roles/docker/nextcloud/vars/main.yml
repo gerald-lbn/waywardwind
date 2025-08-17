@@ -1,8 +1,0 @@
-nextcloud:
-  templates: "roles/docker/nextcloud/templates"
-  volumes:
-    root: "{{ storage.docker }}/nextcloud"
-  ports:
-    http: 8082
-    https: 8443
-    admin: 8000
