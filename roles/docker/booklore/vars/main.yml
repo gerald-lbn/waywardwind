@@ -5,6 +5,7 @@ booklore:
     data: "{{ storage.docker }}/booklore/data"
     config: "{{ storage.docker }}/booklore/config"
     books: "{{ storage.media.books }}"
+    bookdrop: "{{ storage.docker }}/booklore/bookdrop"
   ports:
     web: 9002
 

@@ -1,6 +1,6 @@
 services:
   booklore:
-    image: ghcr.io/adityachandelgit/booklore-app:latest
+    image: booklore/booklore:latest
     container_name: booklore
     environment:
       - PUID=1000
@@ -15,10 +15,10 @@ services:
         condition: service_healthy
     ports:
       - "{{ booklore.ports.web }}:6060"
-      # - "\{\{ booklore.ports.swagger \}\}:8080" # Swagger UI port, change if needed
     volumes:
       - {{ booklore.volumes.data }}:/app/data
       - {{ booklore.volumes.books }}:/books
+      - {{ booklore.volumes.bookdrop }}:/bookdrop
     restart: unless-stopped
 
   mariadb:
@@ -40,6 +40,7 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+  
   cwabd:
     image: ghcr.io/calibrain/calibre-web-automated-book-downloader:latest
     container_name: cwabd
@@ -61,4 +62,5 @@ services:
     volumes:
     # This is where the books will be downloaded to, usually it would be 
     # the same as whatever you gave in "calibre-web-automated"
-      - {{ booklore.volumes.books }}:/cwa-book-ingest
+      - {{ booklore.volumes.bookdrop }}:/cwa-book-ingest
+
